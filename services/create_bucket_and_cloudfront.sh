@@ -1,7 +1,4 @@
-#https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-public-access
-
 #https://repost.aws/es/knowledge-center/s3-troubleshoot-403
-#https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step3-add-bucket-policy-make-content-public
 
 #!/bin/bash
 #verificamos que se alla enviando los argumentos para poder

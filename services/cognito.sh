@@ -3,7 +3,7 @@
 # Variables configurables
 GROUP_NAME="chessmasterDefault"
 DOMAIN="chessmaster"
-APP_CLIENT_NAME="chessmaster21"
+APP_CLIENT_NAME="chessmasterIFts"
 CALLBACK_URL="https://jwt.io"
 
 # Crear el grupo de usuarios
@@ -28,12 +28,7 @@ USER_POOL_ID=$(aws cognito-idp create-user-pool --pool-name $GROUP_NAME \
         }
            ]' \
 	--admin-create-user-config '{
-        "AllowAdminCreateUserOnly": false,
-        "InviteMessageTemplate": {
-            "EmailSubject": "Your temporary password",
-            "EmailMessage": "Your  username is {username} and  temporary password is {####}",
-            "SMSMessage": "Your  username is {username} and temporary password is {####}"
-        }
+        "AllowAdminCreateUserOnly": false
     }' --query 'UserPool.Id' --output text)
 
 # Verifica si el USER_POOL_ID se obtuvo correctamente
@@ -49,7 +44,7 @@ aws cognito-idp create-user-pool-domain --domain $DOMAIN --user-pool-id $USER_PO
 CLIENT_ID=$(aws cognito-idp create-user-pool-client --user-pool-id $USER_POOL_ID --client-name $APP_CLIENT_NAME \
 	--no-generate-secret \
 	--allowed-o-auth-flows "code" "implicit" \
-	--allowed-o-auth-scopes "email" "openid" "profile" \
+	--allowed-o-auth-scopes "email" "openid"  \
 	--callback-urls $CALLBACK_URL \
 	--query 'UserPoolClient.ClientId' --output text)
 
