@@ -201,6 +201,7 @@ fi
 [AWS Docs S3](https://docs.aws.amazon.com/cli/latest/reference/s3api/)
 
 [video youtube](https://www.youtube.com/watch?v=AMJUrGRRv9Y)
+[AWS Docs cloudfront ]([https://www.youtube.com/watch?v=AMJUrGRRv9Y](https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-origin-access-control.html))
 
 [Ejemplo de politicas para s3](https://aws.amazon.com/es/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/)
 
