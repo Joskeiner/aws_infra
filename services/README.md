@@ -1,4 +1,4 @@
-# S3 y CloudFrtont
+# S3 y CloudFront
 
 esta es una documentacion que explica el contedido del script
 
@@ -9,7 +9,7 @@ este escript tiene la 8 partes las cuales se intenta explicar de forma simple y 
 **parte 1**
 
 El escript resive dos parametros los cuales se utilizaran para crear el bucket y
-subir la carpetas al bucket ,primero se verifica que los parametros son pasado .
+subir la carpetas al bucket ,primero se verifica que los parametros son pasados.
 
 ```shell
   if [ "$#" -ne 2 ]; then
@@ -24,7 +24,8 @@ Luego se inicializa las variables que se usaran para la configuracion de los ser
 
 ```shell
     BUCKET_NAME="$1"
-    LOCAL_PATH="$2" ORIGIN_DOMAIN="$BUCKET_NAME.s3.us-east-1.amazonaws.com"
+    LOCAL_PATH="$2"
+    ORIGIN_DOMAIN="$BUCKET_NAME.s3.us-east-1.amazonaws.com"
     DEFAULT_ROOT_OBJECT="index.html"
 
 
@@ -54,7 +55,7 @@ aws s3 website s3://$BUCKET_NAME/ --index-document index.html --error-document e
 
 **parte 4**
 
-Una vez hecha la configuracion se suben los archivos , **Importante** para que tenga inconvenientes con el la visualizacion del sitio los archivos necesarios para servir la paigina estatica deben estar en la raiz del bucket
+Una vez hecha la configuracion se suben los archivos , **Importante** para que tenga inconvenientes con el la visualizacion del sitio los archivos necesarios para servir la pagina estatica deben estar en la raiz del bucket
 
 ```shell
 echo "Subiendo los archivos..."
@@ -67,7 +68,7 @@ echo "Bucket $BUCKET_NAME configurado y archivos subidos."
 
 **parte 5**
 
-Se creara el origin access constrol mediante una configuracion pasada en json
+Se creara el origin access control mediante una configuracion pasada en json
 si no sabe sobre las (OAC) aqui se deja documentacion sobre el tema link [AWS Docs](https://aws.amazon.com/es/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/)
 
 ```shell
@@ -93,7 +94,7 @@ fi
 
 **parte 6**
 
-Ya revisado que el OAC se creo correctamente se procede a la creacion de la distribucion de cloudfront el cual se configuracion se pasa por dedio de json
+Ya revisado que el OAC se creo correctamente se procede a la creacion de la distribucion de cloudfront el cual se configuracion se pasa por medio de json.
 
 ```shell
 DISTRIBUTION_ID=$(aws cloudfront create-distribution --distribution-config '{
@@ -145,7 +146,7 @@ DISTRIBUTION_ID=$(aws cloudfront create-distribution --distribution-config '{
 
 **parte 7**
 
-Se verifica que la distribucion alla salido sin problemas y se valida el id de la misma si este id existe , se procede a obtener el arn de la distribucion
+Se verifica que la distribucion haya salido sin problemas y se valida el id de la misma si este id existe , se procede a obtener el arn de la distribucion.
 
 ```shell
 if [ -z "$DISTRIBUTION_ID" ]; then
