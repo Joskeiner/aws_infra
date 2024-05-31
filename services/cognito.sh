@@ -3,11 +3,16 @@
 # Variables configurables
 #
 #GROUP_NAME="$1"
-GROUP_NAME="chessmasterDefault"
-DOMAIN="chessmaster"
-APP_CLIENT_NAME="chessmasterIFts"
-CALLBACK_URL="https://jwt.io"
+GROUP_NAME="$1"
+DOMAIN="$2"
+APP_CLIENT_NAME="$3"
+CALLBACK_URL="$4"
 REGION="us-east-1" # Cambia esto si tu región es diferente
+
+  if [ "$#" -ne 4 ]; then
+	echo "Uso: $0 <GROUP_NAME> <DOMAIN> <APP_CLIENT_NAME> <CALLBACK_URL>"
+	exit 1
+fi
 
 # Crear el grupo de usuarios
 USER_POOL_ID=$(aws cognito-idp create-user-pool --pool-name $GROUP_NAME \
