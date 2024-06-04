@@ -1,6 +1,6 @@
 # Infraestructura
 
-Esta es una seria de servicios de aws escritos en script de bash y aws cli
+Esta es una serie de servicios de aws escritos en script de bash con aws cli
 
 ## Inicio rapido
 
