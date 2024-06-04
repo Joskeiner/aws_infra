@@ -27,7 +27,7 @@ git clone https://github.com/Joskeiner/aws_infra.git
 4.ingresar la carpeta
 
 ```bash
-cd aws_infra
+cd aws_infra/services/cognito
 ```
 
 5.correr el script
