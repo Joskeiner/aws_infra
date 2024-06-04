@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # Variables configurables
-#
-#GROUP_NAME="$1"
 GROUP_NAME="$1"
 DOMAIN="$2"
 APP_CLIENT_NAME="$3"
 CALLBACK_URL="$4"
 REGION="us-east-1" # Cambia esto si tu región es diferente
 
-  if [ "$#" -ne 4 ]; then
+if [ "$#" -ne 4 ]; then
 	echo "Uso: $0 <GROUP_NAME> <DOMAIN> <APP_CLIENT_NAME> <CALLBACK_URL>"
 	exit 1
 fi
@@ -47,9 +45,13 @@ fi
 
 # Configurar el dominio
 DOMAIN_STATUS=$(aws cognito-idp create-user-pool-domain --domain $DOMAIN --user-pool-id $USER_POOL_ID 2>&1)
+
 if echo "$DOMAIN_STATUS" | grep -q "Domain already associated with another user pool"; then
+
 	echo "El dominio '$DOMAIN' ya está asociado con otro User Pool. Intentando con un dominio alternativo..."
+
 	DOMAIN="${DOMAIN}-$(date +%s)" # Añadir timestamp para hacerlo único
+
 	DOMAIN_STATUS=$(aws cognito-idp create-user-pool-domain --domain $DOMAIN --user-pool-id $USER_POOL_ID)
 	if [ $? -ne 0 ]; then
 		echo "Error configurando el dominio con un nombre alternativo."
@@ -94,5 +96,4 @@ echo "*                                                                         
 # Instrucciones adicionales para el usuario
 echo "*    Para usar la UI alojada de Cognito, dirígete a la siguiente URL:                                                                      "
 echo "*                                                                                                                                          "
-echo "*    https://$DOMAIN.auth.$REGION.amazoncognito.com/oauth2/authorize?response_type=token&client_id=$CLIENT_ID&redirect_uri=$CALLBACK_URL "
 echo "############################################################################################################################################*"
