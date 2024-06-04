@@ -208,3 +208,12 @@ fi
 [Ejemplo de politicas para s3](https://aws.amazon.com/es/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/)
 
 [Tutorial de aws sobre s3 y sitios web estaticos ](https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step3-add-bucket-policy-make-content-public)
+
+
+## Autores
+
+- [Joskeiner simosa ](https://www.github.com/octokatherine)
+
+- [Matias Gonzalez](https://github.com/Mat-hub-byte)
+
+- [Agustin ochoa](https://github.com/8agustin)
