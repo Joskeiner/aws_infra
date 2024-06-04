@@ -182,7 +182,7 @@ aws cognito-idp update-user-pool --user-pool-id $USER_POOL_ID \
 
 [AWS Docs cognito](https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/)
 
-## Authors
+## Autores
 
 - [Joskeiner simosa ](https://www.github.com/octokatherine)
 
