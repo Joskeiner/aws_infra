@@ -35,7 +35,7 @@ cd aws_infra/services/cognito
 sh cognito.sh
 ```
 
-## Usage/Examples
+## Explicacion de Script
 
 Esta explicación se basa en 6 partes, en las cuales cada parte trata de explicar lo que hace cada porción de código.
 
