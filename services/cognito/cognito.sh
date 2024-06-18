@@ -5,10 +5,11 @@ GROUP_NAME="$1"
 DOMAIN="$2"
 APP_CLIENT_NAME="$3"
 CALLBACK_URL="$4"
+URL_LOGOUT="$5"
 REGION="us-east-1" # Cambia esto si tu región es diferente
 
-if [ "$#" -ne 4 ]; then
-	echo "Uso: $0 <GROUP_NAME> <DOMAIN> <APP_CLIENT_NAME> <CALLBACK_URL>"
+if [ "$#" -ne 5 ]; then
+	echo "Uso: $0 <GROUP_NAME> <DOMAIN> <APP_CLIENT_NAME> <CALLBACK_URL>  <URL_LOGOUT>"
 	exit 1
 fi
 
@@ -65,6 +66,7 @@ CLIENT_ID=$(aws cognito-idp create-user-pool-client --user-pool-id $USER_POOL_ID
 	--allowed-o-auth-flows "code" "implicit" \
 	--allowed-o-auth-scopes "email" "openid" \
 	--callback-urls $CALLBACK_URL \
+	--logout-urls $URL_LOGOUT \
 	--supported-identity-providers "COGNITO" \
 	--query 'UserPoolClient.ClientId' --output text)
 
